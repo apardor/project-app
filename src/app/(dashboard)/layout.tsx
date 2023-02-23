@@ -12,6 +12,7 @@ const DashBoardRootLayout = ({children}) => {
       <Sidebar />
           {children}
      </GlassPane>
+     <div id='modal'></div>
     </body>
    </html>
   )
