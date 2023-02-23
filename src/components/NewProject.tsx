@@ -13,7 +13,7 @@ const NewProject = () => {
   const closeModal = () => setIsOpen(false);
   const [name, setName] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
     await createNewProject(name);
     closeModal();
@@ -34,8 +34,9 @@ const NewProject = () => {
           <Input
             placeholder="project name"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e:any) => setName(e.target.value)}
           />
+          {/* @ts-expect-error Server Component */}
           <Button type="submit">Create</Button>
         </form>
       </Modal>

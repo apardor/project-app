@@ -3,7 +3,7 @@ import GlassPane from '@/components/GlassPane'
 import React from 'react'
 import Sidebar from '@/components/Sidebar'
 
-const DashBoardRootLayout = ({children}) => {
+const DashBoardRootLayout = ({children}:{children:any}) => {
   return (
    <html lang='en'>
     <head />

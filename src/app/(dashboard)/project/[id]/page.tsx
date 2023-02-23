@@ -3,7 +3,7 @@ import { getUserFromCookie } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { cookies } from "next/headers";
 
-const getData = async (id) => {
+const getData = async (id:any) => {
   const user = await getUserFromCookie(cookies());
   const project = await db.project.findFirst({
     where: { id,
@@ -16,11 +16,12 @@ const getData = async (id) => {
   return project;
 };
 
-export default async function ProjectPage({ params }) {
+export default async function ProjectPage({ params }: { params:any }) {
   const project = await getData(params.id);
 
   return (
     <div className="h-full overflow-y-auto pr-6 w-full p-5">
+       {/* @ts-expect-error Server Component */}
       <TaskCard tasks={project.tasks} title={project.name} />
     </div>
   );

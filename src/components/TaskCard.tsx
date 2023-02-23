@@ -23,10 +23,11 @@ const getData = async () => {
 
   return tasks;
 };
-const TaskCard = async ({ title, tasks }) => {
+const TaskCard = async ({ title, tasks }:{ title:any, tasks:any }) => {
   const data = tasks || (await getData());
 
-  return (
+  return (<>
+    {/* @ts-expect-error Server Component */}
     <Card>
       <div className="flex justify-between items-center">
         <div>
@@ -41,7 +42,7 @@ const TaskCard = async ({ title, tasks }) => {
       <div>
         {data && data.length ? (
           <div>
-            {data.map((task) => (
+            {data.map((task:any) => (
               <div className="py-2 ">
                 <div>
                   <span className="text-gray-800">{task.name}</span>
@@ -59,6 +60,7 @@ const TaskCard = async ({ title, tasks }) => {
         )}
       </div>
     </Card>
+    </>
   );
 };
 

@@ -34,7 +34,7 @@ const Authform = ({ mode }: { mode: "register" | "signin" }) => {
     const router = useRouter();
 
     const handleSubmit = useCallback(
-        async (e) => {
+        async (e:any) => {
           e.preventDefault();
     
           try {
@@ -61,7 +61,8 @@ const Authform = ({ mode }: { mode: "register" | "signin" }) => {
       const content = mode === "register" ? registerContent : signinContent;
 
 
-  return (
+  return (<>
+  {/* @ts-expect-error Server Component */}
     <Card>
     <div className="w-full">
       <div className="text-center">
@@ -76,11 +77,12 @@ const Authform = ({ mode }: { mode: "register" | "signin" }) => {
                 First Name
               </div>
               <Input
+                {/*@ts-expect-error Server Component */}
                 required
                 placeholder="First Name"
                 value={formState.firstName}
                 className="border-solid border-gray border-2 px-6 py-2 text-lg rounded-3xl w-full"
-                onChange={(e) =>
+                onChange={(e:any) =>
                   setFormState((s) => ({ ...s, firstName: e.target.value }))
                 }
               />
@@ -92,7 +94,7 @@ const Authform = ({ mode }: { mode: "register" | "signin" }) => {
                 placeholder="Last Name"
                 value={formState.lastName}
                 className="border-solid border-gray border-2 px-6 py-2 text-lg rounded-3xl w-full"
-                onChange={(e) =>
+                onChange={(e:any) =>
                   setFormState((s) => ({ ...s, lastName: e.target.value }))
                 }
               />
@@ -107,7 +109,7 @@ const Authform = ({ mode }: { mode: "register" | "signin" }) => {
             placeholder="Email"
             value={formState.email}
             className="border-solid border-gray border-2 px-6 py-2 text-lg rounded-3xl w-full"
-            onChange={(e) =>
+            onChange={(e:any) =>
               setFormState((s) => ({ ...s, email: e.target.value }))
             }
           />
@@ -120,7 +122,7 @@ const Authform = ({ mode }: { mode: "register" | "signin" }) => {
             type="password"
             placeholder="Password"
             className="border-solid border-gray border-2 px-6 py-2 text-lg rounded-3xl w-full"
-            onChange={(e) =>
+            onChange={(e:any) =>
               setFormState((s) => ({ ...s, password: e.target.value }))
             }
           />
@@ -137,6 +139,7 @@ const Authform = ({ mode }: { mode: "register" | "signin" }) => {
             </span>
           </div>
           <div>
+           {/* @ts-expect-error Server Component */}
             <Button type="submit" intent="secondary">
               {content.buttonText}
             </Button>
@@ -144,7 +147,8 @@ const Authform = ({ mode }: { mode: "register" | "signin" }) => {
         </div>
       </form>
     </div>
-  </Card>  )
+  </Card>  
+  </>)
 }
 
 export default Authform

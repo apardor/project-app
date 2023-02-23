@@ -10,13 +10,14 @@ const icons = { Settings, User, Grid, Calendar };
 
 
 
-const SidebarLink = ({link}) => {
+const SidebarLink = ({link}: {link:any}) => {
     const pathname = usePathname();
     let isActive = false;
     if(pathname === link.link){
         isActive = true;
     }
-    const Icon = icons[link.icon];
+    {/* @ts-expect-error Server Component */}
+    const Icon= icons[link.icon];
   return (
     <Link href='link.link'>
         <Icon size={40} className={clsx(
