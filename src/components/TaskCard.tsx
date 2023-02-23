@@ -26,8 +26,7 @@ const getData = async () => {
 const TaskCard = async ({ title, tasks }:{ title:any, tasks:any }) => {
   const data = tasks || (await getData());
 
-  return (<>
-    {/* @ts-expect-error Server Component */}
+  return (
     <Card>
       <div className="flex justify-between items-center">
         <div>
@@ -60,7 +59,6 @@ const TaskCard = async ({ title, tasks }:{ title:any, tasks:any }) => {
         )}
       </div>
     </Card>
-    </>
   );
 };
 

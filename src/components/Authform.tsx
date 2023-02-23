@@ -61,8 +61,7 @@ const Authform = ({ mode }: { mode: "register" | "signin" }) => {
       const content = mode === "register" ? registerContent : signinContent;
 
 
-  return (<>
-  {/* @ts-expect-error Server Component */}
+  return (
     <Card>
     <div className="w-full">
       <div className="text-center">
@@ -77,7 +76,6 @@ const Authform = ({ mode }: { mode: "register" | "signin" }) => {
                 First Name
               </div>
               <Input
-                {/*@ts-expect-error Server Component */}
                 required
                 placeholder="First Name"
                 value={formState.firstName}
@@ -148,7 +146,7 @@ const Authform = ({ mode }: { mode: "register" | "signin" }) => {
       </form>
     </div>
   </Card>  
-  </>)
+  )
 }
 
 export default Authform
